@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="demo1" extends="struts-default" namespace="/">
+
+        <!-- 全局结果页面配置-->
+        <!--<global-results>
+            <result name="success">/hello.jsp</result>
+        </global-results>-->
+
+        <action name="book" class="com.bigjava.action.BookAction">
+            <result name="success">/world.jsp</result>
+        </action>
+        <action name="order" class="com.bigjava.action.OrderAction">
+            <!-- 转发: type="dispatcher"
+                重定向:type="redirect"
+                转发到action:type="chain"      一般是不用的缓存问题
+                重定向到action:type="redirectAction"
+                            action的访问名称
+                -->
+            <result name="success" type="chain">book</result>
+        </action>
+    </package>
+    <!-- 获取表单提交的数据-->
+    <package name="demo2" extends="struts-default" namespace="/">
+        <action name="form1" class="com.bigjava.form.Form1DemoAction"></action>
+        <action name="form2" class="com.bigjava.form.Form2DemoAction"></action>
+        <action name="form4" class="com.bigjava.form.Form4DemoAction"></action>
+        <action name="data1" class="com.bigjava.data.DataDemo1Action"></action>
+        <action name="data2" class="com.bigjava.data.DataDemo2Action"></action>
+        <action name="data3" class="com.bigjava.data.DataDemo3Action"></action>
+        <action name="list" class="com.bigjava.data.ListAction"></action>
+        <action name="map" class="com.bigjava.data.MapAction"></action>
+     </package>
+
+</struts>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+        <class name="hibernate.entity.Dept" table="t_dept">
+            <id name="id" column="id">
+                <generator class="native"></generator>
+            </id>
+            <property name="deptName" column="deptName"></property>
+            <set name="setEmp"  cascade="save-update">
+                <key column="f_id"></key>
+                <one-to-many class="hibernate.entity.Emp"></one-to-many>
+            </set>
+
+
+        </class>
+
+
+    </hibernate-mapping>
